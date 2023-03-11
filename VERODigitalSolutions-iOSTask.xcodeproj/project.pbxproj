@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		743A864629BCB09800C66688 /* QRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743A864529BCB09800C66688 /* QRViewController.swift */; };
 		7456476729B0C0CF00A9F611 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7456476629B0C0CF00A9F611 /* TaskTableViewCell.swift */; };
 		7456476929B0C55400A9F611 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7456476829B0C55400A9F611 /* Task.swift */; };
-		7456476C29B0D4FB00A9F611 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7456476B29B0D4FB00A9F611 /* DataManager.swift */; };
+		7456476C29B0D4FB00A9F611 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7456476B29B0D4FB00A9F611 /* NetworkManager.swift */; };
 		74E1AC4129BA19EE0015DEC6 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E1AC4029BA19EE0015DEC6 /* Color.swift */; };
 		74F7635A29AF742300085A96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F7635929AF742300085A96 /* AppDelegate.swift */; };
 		74F7635C29AF742300085A96 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F7635B29AF742300085A96 /* SceneDelegate.swift */; };
@@ -22,9 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		743A864529BCB09800C66688 /* QRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRViewController.swift; sourceTree = "<group>"; };
 		7456476629B0C0CF00A9F611 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		7456476829B0C55400A9F611 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
-		7456476B29B0D4FB00A9F611 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		7456476B29B0D4FB00A9F611 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		74E1AC4029BA19EE0015DEC6 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		74F7635629AF742300085A96 /* VERODigitalSolutions-iOSTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VERODigitalSolutions-iOSTask.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		74F7635929AF742300085A96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -49,9 +51,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		743A864329BCB07600C66688 /* QR */ = {
+			isa = PBXGroup;
+			children = (
+				743A864429BCB08500C66688 /* View */,
+			);
+			path = QR;
+			sourceTree = "<group>";
+		};
+		743A864429BCB08500C66688 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				743A864529BCB09800C66688 /* QRViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		7456475E29B0BEDB00A9F611 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				743A864329BCB07600C66688 /* QR */,
 				7456476329B0BFCF00A9F611 /* Task */,
 			);
 			path = Scene;
@@ -124,7 +143,7 @@
 		7456476A29B0D4E900A9F611 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				7456476B29B0D4FB00A9F611 /* DataManager.swift */,
+				7456476B29B0D4FB00A9F611 /* NetworkManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -244,8 +263,9 @@
 				74F7636429AF742300085A96 /* VERODigitalSolutions_iOSTask.xcdatamodeld in Sources */,
 				74F7635E29AF742300085A96 /* ViewController.swift in Sources */,
 				7456476729B0C0CF00A9F611 /* TaskTableViewCell.swift in Sources */,
-				7456476C29B0D4FB00A9F611 /* DataManager.swift in Sources */,
+				7456476C29B0D4FB00A9F611 /* NetworkManager.swift in Sources */,
 				74F7635A29AF742300085A96 /* AppDelegate.swift in Sources */,
+				743A864629BCB09800C66688 /* QRViewController.swift in Sources */,
 				74E1AC4129BA19EE0015DEC6 /* Color.swift in Sources */,
 				7456476929B0C55400A9F611 /* Task.swift in Sources */,
 				74F7635C29AF742300085A96 /* SceneDelegate.swift in Sources */,
@@ -398,6 +418,7 @@
 				DEVELOPMENT_TEAM = 3CY5GSUS4Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "VERODigitalSolutions-iOSTask/Resoures/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -426,6 +447,7 @@
 				DEVELOPMENT_TEAM = 3CY5GSUS4Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "VERODigitalSolutions-iOSTask/Resoures/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

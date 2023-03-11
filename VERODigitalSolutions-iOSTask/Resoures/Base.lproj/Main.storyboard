@@ -3,12 +3,13 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Task List-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="VERODigitalSolutions_iOSTask" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,42 +18,50 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="szm-gt-P0y">
-                                <rect key="frame" x="0.0" y="159" width="393" height="575.66666666666663"/>
+                                <rect key="frame" x="0.0" y="159" width="393" height="610"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="taskCell" id="rlp-Ch-Iyy" customClass="TaskTableViewCell" customModule="VERODigitalSolutions_iOSTask" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="42.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="50" width="393" height="130.66667175292969"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rlp-Ch-Iyy" id="tt4-TR-2mE">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="42.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="130.66667175292969"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="EKG-If-Qrw">
-                                                    <rect key="frame" x="20" y="11.000000000000002" width="353" height="20.666666666666671"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="EKG-If-Qrw">
+                                                    <rect key="frame" x="20" y="11.000000000000007" width="353" height="108.66666666666669"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PmR-oi-6vH">
-                                                            <rect key="frame" x="0.0" y="0.33333333333333393" width="84.666666666666671" height="20.333333333333329"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PmR-oi-6vH">
+                                                            <rect key="frame" x="154.66666666666666" y="0.0" width="44" height="23.333333333333332"/>
+                                                            <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="19"/>
+                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
+                                                            <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <size key="shadowOffset" width="-1" height="0.0"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="task" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DlU-Lk-A7g">
-                                                            <rect key="frame" x="89.666666666666686" y="0.33333333333333393" width="84.333333333333314" height="20.333333333333329"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="task" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DlU-Lk-A7g">
+                                                            <rect key="frame" x="153.33333333333334" y="28.333333333333336" width="46.666666666666657" height="23.333333333333336"/>
+                                                            <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="19"/>
+                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
+                                                            <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <size key="shadowOffset" width="-1" height="0.0"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="colorCode" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X2S-cS-pqe">
-                                                            <rect key="frame" x="179" y="0.33333333333333393" width="84.666666666666686" height="20.333333333333329"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="colorCode" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X2S-cS-pqe">
+                                                            <rect key="frame" x="123" y="57.000000000000007" width="107" height="23.333333333333336"/>
+                                                            <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="19"/>
+                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
+                                                            <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <size key="shadowOffset" width="-1" height="0.0"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DescLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kpj-Iq-uTx">
-                                                            <rect key="frame" x="268.66666666666669" y="0.33333333333333393" width="84.333333333333314" height="20.333333333333329"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DescLabel" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kpj-Iq-uTx">
+                                                            <rect key="frame" x="122" y="85.333333333333329" width="109.33333333333331" height="23.333333333333329"/>
+                                                            <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="19"/>
+                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
+                                                            <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <size key="shadowOffset" width="-1" height="0.0"/>
                                                         </label>
                                                     </subviews>
                                                 </stackView>
@@ -73,38 +82,33 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="FtC-XK-gUy">
+                            <searchBar contentMode="redraw" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="FtC-XK-gUy">
                                 <rect key="frame" x="0.0" y="103" width="393" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Zap-T0-tFy"/>
                                 </connections>
                             </searchBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="29b-09-nMg">
-                                <rect key="frame" x="0.0" y="734.66666666666663" width="393" height="34.333333333333371"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Reflesh"/>
-                                <connections>
-                                    <action selector="refreshButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mZu-XL-qiC"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="FtC-XK-gUy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8HL-Ga-BJV"/>
-                            <constraint firstItem="29b-09-nMg" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="948-q5-xZz"/>
-                            <constraint firstItem="29b-09-nMg" firstAttribute="top" secondItem="szm-gt-P0y" secondAttribute="bottom" id="E6S-8J-6w6"/>
                             <constraint firstItem="szm-gt-P0y" firstAttribute="top" secondItem="FtC-XK-gUy" secondAttribute="bottom" id="L0i-Lt-ywi"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="szm-gt-P0y" secondAttribute="trailing" id="cnS-9p-zjW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="szm-gt-P0y" secondAttribute="bottom" id="gbp-4X-GeN"/>
                             <constraint firstItem="szm-gt-P0y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jfo-uQ-TjQ"/>
-                            <constraint firstItem="29b-09-nMg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="n5E-CE-nmQ"/>
                             <constraint firstItem="FtC-XK-gUy" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="qVC-LU-xKm"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="29b-09-nMg" secondAttribute="trailing" id="qpg-rR-PJg"/>
                             <constraint firstItem="FtC-XK-gUy" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="rBt-sL-sAw"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="13V-VB-HbA"/>
+                    <navigationItem key="navigationItem" title="Task List" id="13V-VB-HbA">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="Cws-P0-ceF">
+                            <connections>
+                                <action selector="refreshButtonTapped:" destination="BYZ-38-t0r" id="a4x-ns-ssc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="FtC-XK-gUy" id="sXm-MZ-qa8"/>
                         <outlet property="tableView" destination="szm-gt-P0y" id="wAA-vb-TGg"/>
@@ -114,11 +118,11 @@
             </objects>
             <point key="canvasLocation" x="1863.3587786259541" y="3.5211267605633805"/>
         </scene>
-        <!--Item-->
+        <!--Home-->
         <scene sceneID="IaS-Mn-aTi">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WkP-TU-qmC" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="mER-Pe-Cs4"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="homepodmini" catalog="system" id="mER-Pe-Cs4"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="f9I-HP-Uuz">
                         <rect key="frame" x="0.0" y="59" width="393" height="96"/>
@@ -141,18 +145,60 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4az-Ud-WKt">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" name="AccentColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="WkP-TU-qmC" kind="relationship" relationship="viewControllers" id="Gct-Tx-W1G"/>
+                        <segue destination="c3o-OA-iQP" kind="relationship" relationship="viewControllers" id="VZt-7V-fb4"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="umQ-rl-vyu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="9.9236641221374047" y="3.5211267605633805"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="AOG-UI-o0V">
+            <objects>
+                <viewController id="l34-Vt-Zzb" customClass="QRViewController" customModule="VERODigitalSolutions_iOSTask" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Fp1-zJ-WKg">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="D8d-oH-Ci9"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="5J4-f2-iCn"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dcA-Uu-Ks9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1839" y="735"/>
+        </scene>
+        <!--QR - Code-->
+        <scene sceneID="d0o-MH-mob">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="c3o-OA-iQP" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="QR - Code" image="qrcode" catalog="system" id="cHA-qy-A6S"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vpO-IQ-fFm">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="l34-Vt-Zzb" kind="relationship" relationship="rootViewController" id="QDa-2g-f8B"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KmE-J9-ORc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="937" y="735"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="homepodmini" catalog="system" width="128" height="105"/>
+        <image name="qrcode" catalog="system" width="128" height="114"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

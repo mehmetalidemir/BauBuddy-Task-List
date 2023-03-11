@@ -18,8 +18,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
-        DataManager.shared.fetchTasks { result in
-            switch result{
+        NetworkManager.shared.fetchTasks { result in
+            switch result {
             case .success(let tasks):
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else { return }
@@ -35,6 +35,7 @@ class ViewController: UIViewController {
     private func configureTableView() {
         tableView.delegate = self
         tableView.dataSource = self
+        searchBar.delegate = self
     }
 
     private func filterTasks(for searchText: String) {
@@ -50,11 +51,23 @@ class ViewController: UIViewController {
     private func resetSearch() {
         isSearching = false
         searchBar.text = nil
+        tableView.reloadData()
     }
 
 
     @IBAction func refreshButtonTapped(_ sender: Any) {
-       
+        NetworkManager.shared.fetchTasks { result in
+            switch result {
+            case .success(let tasks):
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    self.tasks = tasks
+                    self.tableView.reloadData()
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
 
     }
 }
@@ -68,12 +81,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell") as! TaskTableViewCell
 
         let task = tasks[indexPath.row]
-        
+
         cell.titleLabel.text = task.title
-        cell.descriptionLabel.text = task.task
+        cell.descriptionLabel.text = task.description
         cell.taskLabel.text = task.task
         cell.colorCodeLabel.text = task.colorCode
-        cell.backgroundColor = hexStringToUIColor(hex: task.colorCode)
+        cell.backgroundColor = UIColor(hexString: task.colorCode)
 
         return cell
     }

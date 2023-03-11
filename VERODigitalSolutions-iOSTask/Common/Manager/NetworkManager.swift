@@ -7,8 +7,8 @@
 
 import Foundation
 
-class DataManager {
-    static let shared = DataManager()
+class NetworkManager {
+    static let shared = NetworkManager()
     
     func fetchToken(completionHandler: @escaping (Result<TokenModelResponse, Error>) -> Void) {
         guard let url = URL(string: "https://api.baubuddy.de/index.php/login") else { return }
