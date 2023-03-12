@@ -7,18 +7,11 @@
 
 import Foundation
 
-class Task : Codable {
-    var task: String
-    var title: String
-    var description: String
-    var colorCode: String
-
-    init(task: String, title: String, description: String, colorCode: String) {
-        self.task = task
-        self.title = title
-        self.description = description
-        self.colorCode = colorCode
-    }
+struct Task: Codable {
+    let title: String
+    let description: String
+    let task: String
+    let colorCode: String
 }
 
 class TokenModelResponse: Codable {

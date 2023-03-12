@@ -28,11 +28,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="130.66667175292969"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="EKG-If-Qrw">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="EKG-If-Qrw">
                                                     <rect key="frame" x="20" y="11.000000000000007" width="353" height="108.66666666666669"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PmR-oi-6vH">
-                                                            <rect key="frame" x="154.66666666666666" y="0.0" width="44" height="23.333333333333332"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="44" height="23.333333333333332"/>
                                                             <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="19"/>
                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -40,7 +40,7 @@
                                                             <size key="shadowOffset" width="-1" height="0.0"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="task" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DlU-Lk-A7g">
-                                                            <rect key="frame" x="153.33333333333334" y="28.333333333333336" width="46.666666666666657" height="23.333333333333336"/>
+                                                            <rect key="frame" x="0.0" y="28.333333333333336" width="46.666666666666664" height="23.333333333333336"/>
                                                             <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="19"/>
                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -48,7 +48,7 @@
                                                             <size key="shadowOffset" width="-1" height="0.0"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="colorCode" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X2S-cS-pqe">
-                                                            <rect key="frame" x="123" y="57.000000000000007" width="107" height="23.333333333333336"/>
+                                                            <rect key="frame" x="0.0" y="57.000000000000007" width="107" height="23.333333333333336"/>
                                                             <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="19"/>
                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -56,7 +56,7 @@
                                                             <size key="shadowOffset" width="-1" height="0.0"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DescLabel" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kpj-Iq-uTx">
-                                                            <rect key="frame" x="122" y="85.333333333333329" width="109.33333333333331" height="23.333333333333329"/>
+                                                            <rect key="frame" x="0.0" y="85.333333333333329" width="109.33333333333333" height="23.333333333333329"/>
                                                             <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="19"/>
                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -64,6 +64,11 @@
                                                             <size key="shadowOffset" width="-1" height="0.0"/>
                                                         </label>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="Kpj-Iq-uTx" firstAttribute="leading" secondItem="X2S-cS-pqe" secondAttribute="leading" id="BuZ-gQ-PJo"/>
+                                                        <constraint firstItem="DlU-Lk-A7g" firstAttribute="leading" secondItem="X2S-cS-pqe" secondAttribute="leading" id="Yiy-rg-ovc"/>
+                                                        <constraint firstItem="PmR-oi-6vH" firstAttribute="leading" secondItem="X2S-cS-pqe" secondAttribute="leading" id="zYR-Of-C4A"/>
+                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>

@@ -15,9 +15,43 @@ class ViewController: UIViewController {
     var tasks: [Task] = []
     var isSearching: Bool = false
 
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
+        configureRefreshControl()
+
+        if let savedTasksData = UserDefaults.standard.data(forKey: "tasks") {
+            let decoder = JSONDecoder()
+            if let savedTasks = try? decoder.decode([Task].self, from: savedTasksData) {
+                tasks = savedTasks
+                tableView.reloadData()
+            }
+        } else {
+            NetworkManager.shared.fetchTasks { result in
+                switch result {
+                case .success(let tasks):
+                    DispatchQueue.main.async { [weak self] in
+                        guard let self = self else { return }
+                        self.tasks = tasks
+                        self.tableView.reloadData()
+                        self.saveTasksToUserDefaults()
+                    }
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
+    }
+
+    private func configureRefreshControl() {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
+        tableView.refreshControl = refreshControl
+    }
+
+    @objc private func refreshData(_ sender: UIRefreshControl) {
         NetworkManager.shared.fetchTasks { result in
             switch result {
             case .success(let tasks):
@@ -25,6 +59,7 @@ class ViewController: UIViewController {
                     guard let self = self else { return }
                     self.tasks = tasks
                     self.tableView.reloadData()
+                    sender.endRefreshing()
                 }
             case .failure(let error):
                 print(error)
@@ -32,11 +67,30 @@ class ViewController: UIViewController {
         }
     }
 
+
     private func configureTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
     }
+
+    private func saveTasksToUserDefaults() {
+        let encoder = JSONEncoder()
+        if let encodedData = try? encoder.encode(tasks) {
+            UserDefaults.standard.set(encodedData, forKey: "tasks")
+        }
+    }
+
+    private func loadTasksFromUserDefaults() {
+        let decoder = JSONDecoder()
+        if let savedData = UserDefaults.standard.data(forKey: "tasks"),
+            let decodedTasks = try? decoder.decode([Task].self, from: savedData) {
+            tasks = decodedTasks
+            tableView.reloadData()
+        }
+    }
+
+
 
     private func filterTasks(for searchText: String) {
         isSearching = true
@@ -51,8 +105,12 @@ class ViewController: UIViewController {
     private func resetSearch() {
         isSearching = false
         searchBar.text = nil
-        tableView.reloadData()
+        loadTasksFromUserDefaults()
+        DispatchQueue.main.async { [weak self] in
+            self?.tableView.reloadData()
+        }
     }
+
 
 
     @IBAction func refreshButtonTapped(_ sender: Any) {
@@ -82,17 +140,17 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
         let task = tasks[indexPath.row]
 
-        cell.titleLabel.text = task.title
-        cell.descriptionLabel.text = task.description
-        cell.taskLabel.text = task.task
-        cell.colorCodeLabel.text = task.colorCode
+        cell.titleLabel.text = "Title: \(task.title)"
+        cell.descriptionLabel.text = "Description: \(task.description)"
+        cell.taskLabel.text = "Task: \(task.task)"
+        cell.colorCodeLabel.text = "Color Code: \(task.colorCode)"
         cell.backgroundColor = UIColor(hexString: task.colorCode)
 
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let task = tasks[indexPath.row]
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 
 
@@ -106,5 +164,16 @@ extension ViewController: UISearchBarDelegate {
             filterTasks(for: searchText)
         }
     }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = nil
+        resetSearch()
+        searchBar.resignFirstResponder()
+    }
 }
+
 
