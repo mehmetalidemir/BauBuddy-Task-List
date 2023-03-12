@@ -95,12 +95,14 @@ class ViewController: UIViewController {
     private func filterTasks(for searchText: String) {
         isSearching = true
         tasks = tasks.filter { task in
-            task.title.contains(searchText) || task.description.contains(searchText)
+            let taskString = "\(task.title) \(task.description) \(task.task) \(task.colorCode)"
+            return taskString.range(of: searchText, options: .caseInsensitive) != nil
         }
         DispatchQueue.main.async { [weak self] in
             self?.tableView.reloadData()
         }
     }
+
 
     private func resetSearch() {
         isSearching = false
